@@ -1,0 +1,24 @@
+{% extends "names/base.html" %}
+{% block css %}
+<style type="text/css">
+  h1 {
+    font-size: 800%;
+  }
+</style>    
+{% endblock %}
+{% block content %}
+    {% if form.name.value %}
+    <h1>{{ form.name.value }}</h1>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.name.as_hidden }}
+      <input type="hidden" name="pk" value="{{ name.pk }}" />
+      <input type="hidden" name="{{ form.used.html_name }}" value="1" />
+      <button type="submit" class="btn btn-large btn-primary">NEXT »</button>
+    </form>
+    {% else %}
+    <h1>GAME OVER!!</h1>
+    {% endif %}
+    <br>
+    <a href="/ready" class="btn btn-danger btn-lg" role="button">Done</a>
+{% endblock %}

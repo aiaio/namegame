@@ -1,0 +1,10 @@
+{% extends "names/base.html" %}
+{% load staticfiles %}
+{% block content %}
+{% if correct_count >= 0 %}
+<h1>{{ correct_count }} correct!</h1>
+{% endif %}
+<a href="/play" class="btn btn-primary btn-lg" role="button">Ready »</a>
+<br><br>
+<img src="{% static "names/img/brickhouse.png" %}" height="400">
+{% endblock %}
